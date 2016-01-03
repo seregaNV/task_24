@@ -1,0 +1,10 @@
+body {
+    margin: 50px;
+}
+.list {
+    margin-top: 30px;
+}
+.icons {
+    color: red;
+    cursor: pointer;
+}
