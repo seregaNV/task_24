@@ -4,17 +4,18 @@
         $scope.data = eF.arr;
         $scope.click = function() {
             var len = $scope.data.length,
+                inputQuery = $scope.name,
                 check = true;
             for (var i = 0; i < len; i++) {
-                if ($scope.name === $scope.data[i]) {
+                if (inputQuery === $scope.data[i]) {
                     check = false;
                 }
             }
-            if (check && $scope.name) {
-                $scope.data.push($scope.name);
-                console.log('"' + $scope.name + '" is added.');
+            if (check && inputQuery) {
+                $scope.data.push(inputQuery);
+                console.log('"' + inputQuery + '" is added.');
             } else {
-                console.log('Item is already exists!');
+                console.log('"' + inputQuery + '" is already exists!');
             }
             console.log('arr: ', $scope.data);
         };
