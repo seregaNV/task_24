@@ -3,30 +3,22 @@
         $scope.show = false;
         $scope.data = eF.arr;
         $scope.click = function() {
-            var len = $scope.data.length,
-                inputQuery = $scope.name,
-                check = true;
-            for (var i = 0; i < len; i++) {
-                if (inputQuery === $scope.data[i]) {
-                    check = false;
-                }
-            }
-            if (check && inputQuery) {
+            var inputQuery = $scope.name,
+                index = $scope.data.indexOf(inputQuery);
+            if (inputQuery && (index === -1)) {
                 $scope.data.push(inputQuery);
                 console.log('"' + inputQuery + '" is added.');
-            } else {
+                console.log('arr: ', $scope.data);
+            } else if (inputQuery) {
                 console.log('"' + inputQuery + '" is already exists!');
+            } else {
+                console.log('Input is empty!');
             }
-            console.log('arr: ', $scope.data);
         };
         $scope.remove = function(item) {
+            var index = $scope.data.indexOf(item);
+            $scope.data.splice(index, 1);
             console.log('"' + item + '" is removed.');
-            var len = $scope.data.length;
-            for (var i = 0; i < len; i++) {
-                if (item === $scope.data[i]) {
-                    $scope.data.splice(i, 1);
-                }
-            }
             console.log('arr: ', $scope.data);
         };
     }
